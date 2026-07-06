@@ -1,0 +1,74 @@
+name: Generate 3D Contribution Graph
+
+on:
+  schedule:
+    # Runs at 00:00, 06:00, 12:00, 18:00 UTC every day
+    - cron: "0 0,6,12,18 * * *"
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Generate 3D Contribution Graph
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # Backup the current SVG before attempting to regenerate
+      - name: Backup existing graph
+        run: |
+          if [ -f "profile-3d-contrib/profile-night-rainbow.svg" ]; then
+            cp profile-3d-contrib/profile-night-rainbow.svg profile-3d-contrib/profile-night-rainbow.backup.svg
+            echo "Backup created"
+          else
+            echo "No existing SVG to backup"
+          fi
+
+      # Attempt generation with retry
+      - name: Generate 3D graph (attempt 1)
+        id: gen1
+        continue-on-error: true
+        uses: yoshi389111/github-profile-3d-contrib@0.7.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          USERNAME: ${{ github.repository_owner }}
+          MAX_REPOS: 10
+
+      - name: Generate 3D graph (attempt 2 — retry if attempt 1 failed)
+        id: gen2
+        if: steps.gen1.outcome == 'failure'
+        continue-on-error: true
+        uses: yoshi389111/github-profile-3d-contrib@0.7.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          USERNAME: ${{ github.repository_owner }}
+          MAX_REPOS: 10
+
+      # If both attempts failed, restore the backup so the graph stays visible
+      - name: Restore backup if generation failed
+        if: steps.gen1.outcome == 'failure' && steps.gen2.outcome == 'failure'
+        run: |
+          if [ -f "profile-3d-contrib/profile-night-rainbow.backup.svg" ]; then
+            cp profile-3d-contrib/profile-night-rainbow.backup.svg profile-3d-contrib/profile-night-rainbow.svg
+            echo "Backup restored — graph stays visible"
+          else
+            echo "No backup available"
+          fi
+
+      # Clean up backup file
+      - name: Remove backup file
+        run: |
+          rm -f profile-3d-contrib/profile-night-rainbow.backup.svg
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --cached --quiet || git commit -m "chore: update 3D contribution graph [skip ci]"
+          git push
