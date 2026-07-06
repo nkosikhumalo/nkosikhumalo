@@ -19,12 +19,17 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Write settings file
+        run: |
+          mkdir -p .github
+          echo '{"githubUserName":"nkosikhumalo","type":"night-rainbow"}' > /tmp/settings.json
+
       - name: Generate 3D graph
         uses: yoshi389111/github-profile-3d-contrib@0.7.1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          USERNAME: ${{ github.repository_owner }}
-          SETTING_JSON: '{"githubUserName":"${{ github.repository_owner }}","type":"night-rainbow"}'
+          USERNAME: nkosikhumalo
+          SETTING_JSON: /tmp/settings.json
 
       - name: Commit and push
         run: |
