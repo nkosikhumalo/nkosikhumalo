@@ -77,18 +77,13 @@ mindset: "Build fast. Build clean. Build to last."
   <img src="https://github-readme-activity-graph.vercel.app/graph?username=nkosikhumalo&bg_color=0d1117&color=c9d1d9&line=4c6a92&point=8b949e&area=true&hide_border=true" alt="Contribution graph" />
 </p>
 
-<!-- 3D Contribution Graph — primary: committed SVG, fallback: hosted service -->
+<!-- 3D Contribution Graph -->
 <p align="center">
-  <picture>
-    <source srcset="profile-3d-contrib/profile-night-rainbow.svg" />
-    <source srcset="https://raw.githubusercontent.com/nkosikhumalo/nkosikhumalo/main/profile-3d-contrib/profile-night-rainbow.svg" />
-    <img
-      src="https://raw.githubusercontent.com/nkosikhumalo/nkosikhumalo/main/profile-3d-contrib/profile-night-rainbow.svg"
-      alt="3D Contribution Graph"
-      width="100%"
-      onerror="this.onerror=null;this.src='https://github-readme-activity-graph.vercel.app/graph?username=nkosikhumalo&bg_color=0d1117&color=c9d1d9&line=4c6a92&point=8b949e&area=true&hide_border=true';"
-    />
-  </picture>
+  <img
+    src="https://raw.githubusercontent.com/nkosikhumalo/nkosikhumalo/main/profile-3d-contrib/profile-night-rainbow.svg"
+    alt="3D Contribution Graph"
+    width="100%"
+  />
 </p>
 
 ## Current Mission
