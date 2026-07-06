@@ -65,12 +65,12 @@ mindset: "Build fast. Build clean. Build to last."
 ## GitHub Analytics
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=nkosikhumalo&show_icons=true&theme=github_dark&hide_border=true&rank_icon=github" alt="Stats" height="170" />
+  <img src="https://github-readme-stats-sigma-five.vercel.app/api?username=nkosikhumalo&show_icons=true&theme=github_dark&hide_border=true&rank_icon=github&include_all_commits=true&count_private=true" alt="Stats" height="170" />
   <img src="https://github-readme-streak-stats.herokuapp.com/?user=nkosikhumalo&theme=github-dark-blue&hide_border=true" alt="Streak" height="170" />
 </p>
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=nkosikhumalo&layout=compact&theme=github_dark&hide_border=true" alt="Top languages" height="170" />
+  <img src="https://github-readme-stats-sigma-five.vercel.app/api/top-langs/?username=nkosikhumalo&layout=compact&theme=github_dark&hide_border=true" alt="Top languages" height="170" />
 </p>
 
 <p align="center">
