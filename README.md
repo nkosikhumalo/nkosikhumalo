@@ -28,6 +28,12 @@
   I design and build practical software with clean architecture, strong fundamentals, and real-world impact.
 </p>
 
+<p align="center">
+  <a href="nkosi_resume.pdf">
+    <img src="https://img.shields.io/badge/%E2%9C%A6%20HIRE%20ME%20%E2%80%94%20VIEW%20MY%20RESUME-0a0f1a?style=for-the-badge&labelColor=5f7fa3&color=0a0f1a" alt="Hire me — view my resume" />
+  </a>
+</p>
+
 ---
 
 ## Identity
